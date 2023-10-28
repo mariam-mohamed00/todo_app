@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/dialog_utils.dart';
@@ -190,15 +191,15 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
           Navigator.pop(context);
         });
       }).timeout(Duration(milliseconds: 500), onTimeout: () {
-        print('task added');
-        // Fluttertoast.showToast(
-        //     msg: "added task successfully",
-        //     toastLength: Toast.LENGTH_SHORT,
-        //     gravity: ToastGravity.CENTER,
-        //     timeInSecForIosWeb: 1,
-        //     backgroundColor: MyTheme.blackColor,
-        //     textColor: Colors.white,
-        //     fontSize: 16.0);
+        // print('task added');
+        Fluttertoast.showToast(
+            msg: "added task successfully",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: MyTheme.blackColor,
+            textColor: Colors.white,
+            fontSize: 16.0);
 
         listProvider
             .getAllTasksFromFireStore(authProvider.currentuser?.id ?? '');

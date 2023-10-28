@@ -44,8 +44,8 @@ class DialogUtils {
     if (posActionName != null) {
       actions.add(TextButton(
           onPressed: () {
-            Navigator.pop(context);
             posAction?.call();
+            Navigator.pop(context);
           },
           child: Text(posActionName)));
     }
